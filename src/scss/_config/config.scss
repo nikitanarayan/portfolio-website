@@ -13,32 +13,32 @@ $fontsize: (
   ),
   xs: (
     desktop: (
-      font-size: 0.75rem,
-      line-height: 0.9375rem,
+      font-size: 8px,
+      line-height: 8px,
     ),
     mobile: (
-      font-size: 0.75rem,
-      line-height: 0.9375rem,
+      font-size: 8px,
+      line-height: 8px,
     ),
   ),
   sm: (
     desktop: (
-      font-size: 1rem,
-      line-height: 1.25rem,
+      font-size: 12px,
+      line-height: 15px,
     ),
     mobile: (
-      font-size: 1rem,
-      line-height: 1.25rem,
+      font-size: 12px,
+      line-height: 15px,
     ),
   ),
   md: (
     desktop: (
-      font-size: 1.5rem,
-      line-height: 1.875rem,
+      font-size: 17px,
+      line-height: 23px,
     ),
     mobile: (
-      font-size: 1.5rem,
-      line-height: 1.875rem,
+      font-size: 17px,
+      line-height: 23px,
     ),
   ),
   lg: (
@@ -103,13 +103,17 @@ $space-m: (
   xxl: 16,
 );
 
-$base-space: 8px;
+$base-space: 10px;
 
 :root {
   --columns: 12;
   --color-text: black;
   --color-link: black;
   --color-bg: white;
+  --color-primary: yellow;
+  --color-secondary: #e5e5e5;
+  --color-tertiary: #0000ff;
+  --color-grey: #f4f4f4;
 }
 
 // __________________________________________________________ //
@@ -119,19 +123,11 @@ $base-space: 8px;
 $font-smoothing-moz: true;
 $font-smoothing-webkit: true;
 
-$main-font: 1;
+$main-font: regular;
 $fonts: (
-  1: (
-    name: Helvetica,
-    fallback: "Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif",
-    url: "",
-    weight: normal,
-    style: normal,
-    display: auto,
-  ),
-  2: (
-    name: Times,
-    fallback: "Times New Roman, Times, serif",
+  regular: (
+    name: Arial,
+    fallback: "Helvetica Neue, Helvetica, Lucida Grande, sans-serif",
     url: "",
     weight: normal,
     style: normal,

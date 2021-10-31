@@ -1,4 +1,19 @@
 title: Website
 
 tabs:
+  content:
+    label: Content
+    icon: folder
+    sections:
+      sectionA:
+        type: pages
+        headline: Menu pages
+        info: "{{ page.subtitle }} / {{ page.identification }}"
+        templates:
+          - essay
+          - mapping
+          - video
+          - datavisualisation
+          - annex
+
   seo: tabs/seo
