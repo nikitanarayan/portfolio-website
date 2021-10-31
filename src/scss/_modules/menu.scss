@@ -1,0 +1,86 @@
+.menu {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid var(--color-secondary);
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--color-bg) 0%, rgba(255, 255, 255, 0) 100%);
+    width: #{getWidth(2)};
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, var(--color-bg) 100%);
+    width: #{getWidth(2)};
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+.menu__inner {
+  @include padding(1.5 0);
+  outline: none;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+
+  &:after {
+    content: "flickity";
+    display: none;
+  }
+}
+
+.flickity-viewport,
+.flickity-slider {
+  height: 100%;
+  width: 100%;
+  outline: none;
+}
+
+.menu__item {
+  --menu-item: #{getWidth(3)};
+  @include padding(1);
+  width: var(--menu-item);
+  background-color: var(--color-grey);
+  margin-right: var(--margin-md);
+  flex: 0 0 var(--menu-item);
+
+  &.active {
+    background-color: var(--color-primary);
+  }
+}
+
+.menu__id {
+  @include margin(0 0 1 0);
+  @extend .h6;
+  font-weight: bold;
+}
+
+.menu__title {
+  font-weight: bold;
+}
+
+.menu__separator {
+  @include margin(0 1.5 0 0);
+  height: 100%;
+
+  &:after {
+    content: "";
+    border-right: 1px dashed var(--color-secondary);
+    position: absolute;
+    height: 100%;
+  }
+}

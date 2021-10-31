@@ -1,0 +1,64 @@
+.header {
+  @include padding(1 2);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-text);
+  display: flex;
+
+  &,
+  a {
+    color: var(--color-secondary);
+  }
+}
+
+.header__section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+
+  &--left {
+    justify-content: flex-start;
+  }
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--right {
+    justify-content: flex-end;
+  }
+}
+
+.header__about {
+  display: flex;
+  height: 14px;
+  width: 14px;
+
+  svg {
+    width: 100%;
+    fill: var(--color-secondary);
+  }
+}
+
+.header__arrow {
+  display: flex;
+  cursor: pointer;
+  width: 19px;
+  height: 7px;
+
+  svg {
+    width: 100%;
+    fill: var(--color-secondary);
+  }
+
+  &--w {
+    @include margin(0 2 0 0);
+  }
+
+  &--e {
+    @include margin(0 0 0 2);
+  }
+}

@@ -60,3 +60,4 @@
 
   <main class="main">
     <?php snippet('modules/header') ?>
+    <?php snippet('modules/menu') ?>

@@ -3,3 +3,7 @@
     margin-bottom: var(--lh);
   }
 }
+
+@function getWidth($column) {
+  @return calc((100% - var(--margin-md) * (var(--columns) + 1)) / var(--columns) * #{$column});
+}

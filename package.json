@@ -20,6 +20,7 @@
     "url": "git+https://github.com/quentin-f451/kirby-starterkit.git"
   },
   "dependencies": {
+    "flickity": "^2.2.2",
     "jquery": "^3.5.1"
   },
   "devDependencies": {

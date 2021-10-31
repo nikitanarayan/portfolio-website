@@ -77,36 +77,36 @@ $margin: (
   xxs: 0.1,
   xs: 0.5,
   sm: 1,
-  md: 2,
-  lg: 4,
-  xl: 8,
-  xxl: 16,
+  md: 1.5,
+  lg: 2,
+  xl: 3,
+  xxl: 6,
 );
 
 $space-d: (
   xxs: 0.1,
   xs: 0.5,
   sm: 1,
-  md: 2,
-  lg: 4,
-  xl: 8,
-  xxl: 16,
+  md: 1.5,
+  lg: 2,
+  xl: 3,
+  xxl: 6,
 );
 
 $space-m: (
   xxs: 0.1,
   xs: 0.5,
   sm: 1,
-  md: 2,
-  lg: 4,
-  xl: 8,
-  xxl: 16,
+  md: 1.5,
+  lg: 2,
+  xl: 3,
+  xxl: 6,
 );
 
 $base-space: 10px;
 
 :root {
-  --columns: 12;
+  --columns: 14;
   --color-text: black;
   --color-link: black;
   --color-bg: white;
