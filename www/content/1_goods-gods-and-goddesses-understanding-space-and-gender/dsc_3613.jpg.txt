@@ -1,0 +1,9 @@
+Caption: Storefront of Sansar.
+
+----
+
+Template: image
+
+----
+
+Sort: 9

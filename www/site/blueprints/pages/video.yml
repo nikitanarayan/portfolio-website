@@ -1,0 +1,42 @@
+Title: Video
+
+options:
+  delete: false
+  changeStatus: false
+  changeTitle: false
+  changeSlug: false
+  duplicate: false
+
+tabs:
+  content:
+    label: Content
+    icon: folder
+    columns:
+      - width: 1/4
+        sections:
+          contentC:
+            type: fields
+            fields:
+              length:
+                type: text
+                label: Length
+                pattern: "[0-9]{2,}:[0-9]{2}"
+                placeholder: "00:00"
+          contentA:
+            type: files
+            headline: Videos
+            layout: cards
+            size: small
+            template: video
+            max: 1
+      - width: 3/4
+        sections:
+          contentB:
+            type: fields
+            fields:
+              text:
+                type: markdown
+                label: Text
+                size: two-lines
+                buttons:
+                  - italic

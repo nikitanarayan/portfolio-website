@@ -1,0 +1,9 @@
+Caption: Storefront of Grahasti.
+
+----
+
+Template: image
+
+----
+
+Sort: 8

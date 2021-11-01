@@ -1,0 +1,9 @@
+title: Video
+accept: video/mpeg, video/mp4
+
+fields:
+  caption: 
+    type: markdown
+    size: one-line
+    label: Caption
+    buttons: false

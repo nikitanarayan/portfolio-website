@@ -1,0 +1,16 @@
+title: Annex
+
+options:
+  delete: false
+  changeStatus: false
+  changeTitle: false
+  changeSlug: false
+  duplicate: false
+
+fields:
+  text:
+    type: markdown
+    label: Text
+    buttons:
+      - italic
+    size: two-lines

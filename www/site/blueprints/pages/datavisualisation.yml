@@ -1,0 +1,54 @@
+Title: Datavisualisation
+
+options:
+  delete: false
+  changeStatus: false
+  changeTitle: false
+  changeSlug: false
+  duplicate: false
+
+tabs:
+  content:
+    label: Content
+    icon: folder
+    columns:
+      - width: 1/1
+        sections:
+          contentA:
+            type: fields
+            fields:
+              blocks:
+                type: blocks
+                label: Blocks
+                fieldsets:
+                  item:
+                    name: Block
+                    icon: document
+                    preview: fields
+                    wysiwyg: true 
+                    label: false 
+                    fields:
+                      quote:
+                        type: text
+                        label: Quote
+                      image:
+                        type: files
+                        label: Image
+                        multiple: false
+                        uploads:
+                          template: image
+                        width: 1/2
+                      source:
+                        type: markdown
+                        buttons: false
+                        size: one-line
+                        label: Source
+                        width: 1/2
+                      text:
+                        type: markdown
+                        label: Text
+                        buttons:
+                          - italic
+                        size: one-line
+  
+  images: tabs/images

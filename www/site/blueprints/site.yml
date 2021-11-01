@@ -9,6 +9,7 @@ tabs:
         type: pages
         headline: Menu pages
         info: "{{ page.subtitle }} / {{ page.identification }}"
+        image: false
         templates:
           - essay
           - mapping

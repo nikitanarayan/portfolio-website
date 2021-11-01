@@ -1,0 +1,70 @@
+Title: Essay
+
+options:
+  delete: false
+  changeStatus: false
+  changeTitle: false
+  changeSlug: false
+  duplicate: false
+
+tabs:
+  text:
+    label: Text
+    icon: text
+    columns:
+      - width: 1/1
+        sections:
+          sectionA:
+            type: fields
+            fields:
+              text:
+                type: blocks
+                label: Text
+                fieldsets:
+                  chapter:
+                    name: Chapter
+                    icon: text
+                    preview: fields
+                    wysiwyg: true 
+                    label: false 
+                    fields:
+                      title:
+                        type: markdown
+                        label: Title
+                        size: one-line
+                        buttons: false
+                      text:
+                        type: markdown
+                        label: Text
+                        size: two-lines
+                        buttons: 
+                          - italic
+                      glossary:
+                        type: multilist
+                        label: Glossary
+                        fields:
+                          number:
+                            type: number
+                            label: Number
+                            width: 1/8
+                          text:
+                            type: text
+                            label: Text
+                            width: 7/8
+
+  images: 
+    label: Images
+    icon: image
+    columns:
+      - width: 1/1
+        sections:
+          imagesA:
+            type: files
+            headline: Images
+            layout: cards
+            size: small
+            template: image
+            limit: 500
+            info: '{{ file.getEssayCaption }}'
+            image:
+              back: white

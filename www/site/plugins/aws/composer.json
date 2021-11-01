@@ -1,0 +1,24 @@
+{
+  "name": "quentin-f451/aws",
+  "description": "AWS",
+  "type": "kirby-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Quentin Creuzet",
+      "email": "quentin@f451.faith"
+    }
+  ],
+  "require": {
+    "getkirby/composer-installer": "^1.1",
+    "aws/aws-sdk-php": "^3.112"
+  },
+  "autoload": {
+    "psr-4": {
+      "Superwoman\\Superplugin\\": "src/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true
+  }
+}
