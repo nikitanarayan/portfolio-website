@@ -10,7 +10,7 @@
 }
 
 .essay__col {
-  @include padding(1.5 0);
+  @include padding(2 0);
   position: relative;
 
   &--menu {
@@ -20,9 +20,9 @@
       content: "";
       display: inline-block;
       position: absolute;
-      height: calc(var(--content-height) - var(--margin-md) * 2);
+      height: calc(var(--content-height) - var(--margin-lg) * 2);
       width: 0;
-      top: var(--margin-md);
+      top: var(--margin-lg);
       border-left: 1px solid var(--color-secondary);
       right: calc(var(--margin-sm) * -1);
     }
@@ -38,9 +38,9 @@
       content: "";
       display: inline-block;
       position: absolute;
-      height: calc(var(--content-height) - var(--margin-md) * 2);
+      height: calc(var(--content-height) - var(--margin-lg) * 2);
       width: 0;
-      top: var(--margin-md);
+      top: var(--margin-lg);
       border-left: 1px solid var(--color-secondary);
       left: calc(var(--margin-sm) * -1);
     }
@@ -98,7 +98,7 @@
   padding: 2px;
 
   &:not(:last-child) {
-    @include margin(0 0 3 0);
+    @include margin(0 0 4 0);
   }
 
   &.active {
@@ -107,7 +107,7 @@
 }
 
 .essay__figure__image {
-  @include margin(0 0 1.5 0);
+  @include margin(0 0 2 0);
 
   img {
     display: block;

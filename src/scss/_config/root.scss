@@ -35,7 +35,7 @@
   --space-xl: #{getLineHeight(sm, mobile) * map-get($space-m, xl)};
   --space-xxl: #{getLineHeight(sm, mobile) * map-get($space-m, xxl)};
 
-  --header-height: calc(var(--lh) + var(--margin-sm) * 2);
+  --header-height: calc(var(--lh) + var(--margin-lg) * 2);
   --content-height: calc(100vh - var(--top-height));
 
   @include mq(sm) {

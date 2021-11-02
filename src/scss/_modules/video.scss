@@ -10,7 +10,7 @@
 }
 
 .video__col {
-  @include padding(1.5 0);
+  @include padding(2 0);
   position: relative;
 
   &--video {
@@ -20,9 +20,9 @@
       content: "";
       display: inline-block;
       position: absolute;
-      height: calc(var(--content-height) - var(--margin-md) * 2);
+      height: calc(var(--content-height) - var(--margin-lg) * 2);
       width: 0;
-      top: var(--margin-md);
+      top: var(--margin-lg);
       border-left: 1px solid var(--color-secondary);
       right: calc(var(--margin-sm) * -1);
     }
@@ -55,7 +55,7 @@
 }
 
 .video__footer {
-  @include padding(1.5 2);
+  @include padding(2);
   display: flex;
   justify-content: space-between;
   background-color: var(--color-secondary);
