@@ -27,5 +27,5 @@
 }
 
 @function getWidth($column) {
-  @return calc((100% - var(--margin-md) * (var(--columns) + 1)) / var(--columns) * #{$column});
+  @return calc((100vw - var(--margin-lg) * (var(--columns) + 1)) / var(--columns) * #{$column} + var(--margin-lg) * (#{$column} - 1));
 }

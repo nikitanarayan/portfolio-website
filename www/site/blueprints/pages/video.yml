@@ -24,10 +24,17 @@ tabs:
                 placeholder: "00:00"
           contentA:
             type: files
-            headline: Videos
+            headline: Video
             layout: cards
             size: small
             template: video
+            max: 1          
+          contentD:
+            type: files
+            headline: Poster
+            layout: cards
+            size: small
+            template: image
             max: 1
       - width: 3/4
         sections:
