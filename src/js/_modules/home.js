@@ -1,9 +1,14 @@
 export default class Home {
   constructor() {
-    this.init();
+    this.getInnerHeight();
+
+    $(window).on("resize", () => {
+      this.getInnerHeight();
+    });
   }
 
-  init() {
-    console.log("Loaded");
+  getInnerHeight() {
+    const height = $(".js-header").outerHeight() + $(".js-menuContainer").outerHeight();
+    $("html").css({ "--top-height": height + "px" });
   }
 }

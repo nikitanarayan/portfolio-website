@@ -7,9 +7,11 @@ window.$ = window.jQuery = jquery;
 import Website from "./_modules/website";
 import Home from "./_modules/home";
 import Menu from "./_modules/menu";
+import Essay from "./_modules/essay";
 
 $(function () {
   new Website();
   new Home();
   new Menu();
+  new Essay();
 });

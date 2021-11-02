@@ -1,4 +1,4 @@
-<section class="menu">
+<section class="menu js-menuContainer">
   <div class="menu__inner js-menu">
     <?php
     $last = $site->children()->listed()->last();

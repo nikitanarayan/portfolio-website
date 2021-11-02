@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header js-header">
   <div class="header__section header__section--left">
     <h1 class="header__title"><a href="<?= $site->url() ?>"><?= $site->title() ?></a></h1>
   </div>

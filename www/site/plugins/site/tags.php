@@ -6,13 +6,16 @@ return [
       'text'
     ],
     'html' => function ($tag) {
-      return '<span>';
+      $val = $tag->text;
+      $index = $tag->value;
+      return "<span class='glossary__item js-glossaryCTA' data-index='$index'>$val</span>";
     }
   ],
 
   'fig' => [
     'html' => function ($tag) {
-      return '<span>';
+      $val = $tag->value;
+      return "<span class='figure js-figureCTA' data-index='$val'>[Fig.$val]</span>";
     }
   ]
 ];

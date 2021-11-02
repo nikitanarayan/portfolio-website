@@ -1,8 +1,10 @@
 .menu {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: var(--header-height);
   border-bottom: 1px solid var(--color-secondary);
+  background-color: var(--color-bg);
+  z-index: 9;
 
   &:before {
     content: "";

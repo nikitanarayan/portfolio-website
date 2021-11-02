@@ -1,6 +1,28 @@
 .paragraph {
-  p:not(:last-child) {
-    margin-bottom: var(--lh);
+  p,
+  blockquote {
+    &:not(:last-child) {
+      margin-bottom: var(--lh);
+    }
+  }
+
+  blockquote {
+    @include padding(0 0 0 3);
+  }
+
+  i,
+  em {
+    font-style: italic;
+  }
+
+  .glossary__item,
+  .figure {
+    background-color: var(--color-secondary);
+    cursor: crosshair;
+
+    &:hover {
+      background-color: var(--color-primary);
+    }
   }
 }
 
