@@ -16,10 +16,10 @@
             </div>
             <div class="mapping__player">
               <div class="mapping__player__inner js-playVideo">
-                <div class="js-mappingPlay play"></div>
+                <div class="play"></div>
               </div>
               <div class="mapping__progress">
-                <span class="js-mappingProgress">00:00</span> <span>/</span> <span class="mapping__length js-mappingLength"><?= $block->length() ?></span>
+                <span class="js-videoProgress">00:00</span> <span>/</span> <span class="mapping__length js-mappingLength"><?= $block->length() ?></span>
               </div>
             </div>
           <?php endif; ?>

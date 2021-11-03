@@ -1,0 +1,15 @@
+.annex {
+  @include padding(2);
+}
+
+.annex__inner {
+  display: grid;
+  grid-template-columns: repeat(14, minmax(0, 1fr));
+  grid-column-gap: var(--margin-lg);
+  height: 100%;
+}
+
+.annex__text {
+  @extend .h4, .paragraph;
+  grid-column: 1 / 7;
+}

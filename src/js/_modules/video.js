@@ -19,6 +19,18 @@ export default class Video {
         }
       });
 
+    $(".js-playVideoInitial")
+      .off("click")
+      .on("click", (e) => {
+        const block = $(".js-videoBlock");
+        console.log(block);
+        if ($(block).hasClass("playing")) {
+          this.pauseVideoInitial(block);
+        } else {
+          this.playVideoInitial(block);
+        }
+      });
+
     $(".js-closeVideo")
       .off("click")
       .on("click", (e) => {
@@ -41,7 +53,7 @@ export default class Video {
     this.feed = null;
     $(".js-mappingBlock").removeClass("playing paused active");
     $(".js-mappingVideo").remove();
-    $(".js-mappingProgress").text("00:00");
+    $(".js-videoProgress").text("00:00");
   }
 
   pauseVideo(block) {
@@ -68,10 +80,10 @@ export default class Video {
           <div class="mapping__video__footer js-mappingVideoFooter">
             <div class="mapping__video__player">
               <div class="mapping__player__inner js-playVideo">
-                <div class="js-mappingPlay play"></div>
+                <div class="play"></div>
               </div>
               <div class="mapping__progress">
-                <span class="js-mappingProgress">00:00</span> <span>/</span> <span class="mapping__length">${length}</span>
+                <span class="js-videoProgress">00:00</span> <span>/</span> <span class="mapping__length">${length}</span>
               </div>
             </div>
             <div class="mapping__buttons">
@@ -97,6 +109,23 @@ export default class Video {
     }, 100);
   }
 
+  playVideoInitial(block) {
+    if (!this.feed) {
+      this.feed = $(".js-videoSource")[0];
+      this.addProgress();
+    }
+    $(block).addClass("playing").removeClass("paused");
+    this.feed.play();
+    setTimeout(() => {
+      this.init();
+    }, 100);
+  }
+
+  pauseVideoInitial(block) {
+    this.feed.pause();
+    $(block).removeClass("playing").addClass("paused");
+  }
+
   addProgress() {
     this.positionProgress();
     this.interval = setInterval(() => {
@@ -109,7 +138,7 @@ export default class Video {
     const now = this.feed.currentTime;
     const currentLength = now - start;
     const str = this.getTimer(currentLength);
-    $(".js-mappingBlock.active, .js-mappingVideo").find(".js-mappingProgress").text(str);
+    $(".js-mappingBlock.active, .js-mappingVideo, .js-videoProgressInitial").find(".js-videoProgress").text(str);
   }
 
   getTimer(length) {

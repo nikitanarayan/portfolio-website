@@ -26,6 +26,13 @@
       border-left: 1px solid var(--color-secondary);
       right: calc(var(--margin-sm) * -1);
     }
+
+    & > div {
+      width: 100%;
+      max-height: calc(100% - var(--header-height));
+      cursor: initial;
+      display: flex;
+    }
   }
 
   &--text {
@@ -41,16 +48,11 @@
 }
 
 .video__col__inner {
-  height: 0;
-  padding-bottom: 56.25%;
-  position: relative;
-
   video {
-    position: absolute;
-    height: 100%;
     width: 100%;
-    left: 0;
-    top: 0;
+    max-height: 100%;
+    display: block;
+    background-color: black;
   }
 }
 
@@ -70,17 +72,15 @@
   @include margin(0 2 0 0);
   cursor: pointer;
 
-  .play {
-    &:after {
-      font-weight: bold;
-      content: "Play";
-    }
+  &:after {
+    font-weight: bold;
+    content: "Play";
   }
 
-  .stop {
+  .video__col.playing & {
     &:after {
       font-weight: bold;
-      content: "Stop";
+      content: "Pause";
     }
   }
 }
