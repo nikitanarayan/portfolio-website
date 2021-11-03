@@ -94,6 +94,11 @@
   }
 }
 
+.essay__figures {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
 .essay__figure {
   padding: 2px;
 
