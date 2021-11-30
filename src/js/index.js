@@ -9,6 +9,7 @@ import Home from "./_modules/home";
 import Menu from "./_modules/menu";
 import Essay from "./_modules/essay";
 import Video from "./_modules/video";
+import Maps from "./_modules/maps";
 
 $(function () {
   new Website();
@@ -16,4 +17,5 @@ $(function () {
   new Menu();
   new Essay();
   new Video();
+  new Maps();
 });

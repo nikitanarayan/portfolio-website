@@ -1,0 +1,10 @@
+.map {
+  @include margin(-2 -1 -2 -0.9);
+  height: calc(100% + var(--margin-lg) * 2);
+  width: calc(100% + var(--margin-md) * 2 - 1px);
+  background-color: var(--color-bg);
+}
+
+.leaflet-control-container {
+  display: none;
+}

@@ -27,7 +27,9 @@
         </div>
       <?php endforeach; ?>
     </div>
-    <div class="mapping__col mapping__col--map mapping__col--fixed"></div>
+    <div class="mapping__col mapping__col--map mapping__col--fixed">
+      <div class="map js-map"></div>
+    </div>
   </article>
 </section>
 
