@@ -9,7 +9,7 @@ export default class Maps {
   init() {
     mapboxgl.accessToken = "pk.eyJ1Ijoibm5pa2l0YSIsImEiOiJjazdtYzV2MDYwMzliM2dubnVubnJuMTRrIn0.6KqRhtWgMc_nGwMPAqmstQ";
     this.state = {};
-    this.createLayers();
+    if ($(".js-map").length) this.createLayers();
   }
 
   initPopups() {
@@ -79,6 +79,8 @@ export default class Maps {
         this.map = new mapboxgl.Map({
           container: $(".js-map")[0],
           style: "mapbox://styles/nnikita/ckrlw73ap20dw17lpearimoqx",
+          maxZoom: 20,
+          minZoom: 15,
         });
         this.initPopups();
       });
