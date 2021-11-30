@@ -1,6 +1,6 @@
 <?php snippet('head') ?>
 
-<section class="essay content">
+<section class="essay content js-content">
   <article class="essay__inner">
     <div class="essay__col essay__col--fixed essay__col--menu">
       <div class="essay__col__inner">

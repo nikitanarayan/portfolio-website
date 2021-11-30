@@ -1,6 +1,6 @@
 <?php snippet('head') ?>
 
-<section class="mapping content">
+<section class="mapping content js-content">
   <article class="mapping__inner js-mappingInner">
     <div class="mapping__col mapping__col--videos">
       <?php foreach ($page->blocks()->toBlocks() as $block) : ?>

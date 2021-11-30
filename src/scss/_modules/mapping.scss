@@ -129,6 +129,15 @@
     max-height: calc(100% - var(--header-height));
     cursor: initial;
   }
+
+  .content.fullscreen & {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    padding: 0;
+  }
 }
 
 .mapping__video__inner {

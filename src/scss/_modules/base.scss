@@ -26,6 +26,13 @@
   }
 }
 
+.content {
+  &.fullscreen {
+    position: relative;
+    z-index: 999;
+  }
+}
+
 @function getWidth($column) {
   @return calc((100vw - var(--margin-lg) * (var(--columns) + 1)) / var(--columns) * #{$column} + var(--margin-lg) * (#{$column} - 1));
 }

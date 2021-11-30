@@ -23,7 +23,6 @@ export default class Video {
       .off("click")
       .on("click", (e) => {
         const block = $(".js-videoBlock");
-        console.log(block);
         if ($(block).hasClass("playing")) {
           this.pauseVideoInitial(block);
         } else {
@@ -40,8 +39,20 @@ export default class Video {
     $(".js-mappingVideo")
       .off("click")
       .on("click", (e) => {
-        if (!this.clickTarget(e, "js-mappingVideoInner", "js-mappingVideoFooter")) {
+        if (!this.clickTarget(e, "js-mappingVideoInner", "js-mappingVideoFooter", "js-videoFullscreen")) {
           this.stopVideo();
+        }
+      });
+
+    $(".js-videoFullscreen")
+      .off("click")
+      .on("click", (e) => {
+        const content = $(e.currentTarget).parents(".js-content");
+        $(content).toggleClass("fullscreen");
+        if ($(content).hasClass("fullscreen")) {
+          $(e.currentTarget).text("Remove fullscreen");
+        } else {
+          $(e.currentTarget).text("Fullscreen");
         }
       });
   }
@@ -69,7 +80,7 @@ export default class Video {
       const length = $(block).find(".js-mappingLength").text();
       $(".js-mappingVideo").remove();
       $(".js-mappingInner").append(
-        `<div class="mapping__video playing js-mappingVideo">
+        `<div class="mapping__video playing js-mappingVideo js-videoContainer">
           <div class="js-mappingVideoInner">
             <div class="mapping__video__inner">
               <video class="mapping__video__source js-videoSource" poster="${poster}">
@@ -87,9 +98,7 @@ export default class Video {
               </div>
             </div>
             <div class="mapping__buttons">
-              <div class="mapping__fullscreen">
-                <span>Fullscreen</span>
-              </div>
+              <div class="mapping__fullscreen js-videoFullscreen">Fullscreen</div>
               <div class="mapping__close js-closeVideo">
                 <span>Close</span>
               </div>

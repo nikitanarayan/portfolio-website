@@ -1,6 +1,6 @@
 <?php snippet('head') ?>
 
-<section class="data content">
+<section class="data content js-content">
   <article class="data__inner">
     <?php foreach ($page->blocks()->toBlocks() as $block) : ?>
       <div class="data__block">
