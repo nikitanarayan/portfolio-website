@@ -70,15 +70,12 @@ export default class Maps {
   }
 
   createLayers() {
-    fetch("/api/pages" + window.location.pathname + "?select=content", {
+    fetch(window.location.href + ".json", {
       method: "GET",
-      headers: {
-        "X-CSRF": window.csrf,
-      },
     })
       .then((response) => response.json())
       .then((response) => {
-        this.layers = response.data.content.caption;
+        this.layers = response;
         this.map = new mapboxgl.Map({
           container: $(".js-map")[0],
           style: "mapbox://styles/nnikita/ckrlw73ap20dw17lpearimoqx",
