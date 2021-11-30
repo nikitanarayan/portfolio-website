@@ -1,4 +1,7 @@
 </main>
+<script>
+  window.csrf = "<?= csrf() ?>";
+</script>
 <?= js('assets/js/bundle.js') ?>
 
 <?php if (getenv('APP_ENV') === "dev") : ?>

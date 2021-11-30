@@ -6,6 +6,65 @@ Blocks: [{"content":{"title":"","video":[],"poster":[],"length":"","text":"The o
 
 ----
 
+Caption:
+
+- 
+  title: Place of Worship
+  id: gods
+  numberofstores: 63
+  sold: ""
+  color: '#e61e73'
+- 
+  title: Religious Store
+  id: gods-stores
+  numberofstores: 37
+  sold: Idols, Incense, Vermillion
+  color: '#d7c3e0'
+- 
+  title: Restaurant
+  id: restaurant
+  numberofstores: 5
+  sold: 'Meals & Snacks'
+  color: '#23aa41'
+- 
+  title: 'Beauty & Wedding'
+  id: beauty-and-wedding
+  numberofstores: 196
+  sold: Bangles, Jewelry, Cosmetics, Bridal wear
+  color: '#007fa1'
+- 
+  title: Kitchen Utensils Store
+  id: kitchen-utensils
+  numberofstores: 115
+  sold: Pots, Pans, Ladles, Crockery
+  color: '#ffed00'
+- 
+  title: Grocery Store
+  id: grocery-stores
+  numberofstores: 33
+  sold: Grains, Spices
+  color: '#e9483f'
+- 
+  title: Toys Store
+  id: toys-stores
+  numberofstores: 77
+  sold: Dolls, Bikes, Stuffed animals
+  color: '#9653d5'
+- 
+  title: Plastic Goods Store
+  id: plastic-goods-stores
+  numberofstores: 71
+  sold: Mops, Buckets, Diapers
+  color: '#faaa00'
+- 
+  title: Bar and Liquor Store
+  id: bars-and-liquor
+  numberofstores: 2
+  sold: Alcholic beverages
+  color: '#004899'
+
+----
+
 Subtitle: Research, Video series and Mapping
 
 ----

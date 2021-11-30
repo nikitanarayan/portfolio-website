@@ -28,7 +28,31 @@
       <?php endforeach; ?>
     </div>
     <div class="mapping__col mapping__col--map mapping__col--fixed">
-      <div class="map js-map"></div>
+      <div class="map js-mapContainer">
+        <div class="map__inner js-map"></div>
+        <div class="map__popup js-mapPopup"></div>
+      </div>
+      <div class="map__caption js-mapCaption">
+        <div class="map__caption__title js-mapCaptionTitle">
+          <div>
+            <div class="js-mapCaptionText">Show legend</div>
+            <div class="map__info">
+              <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                <path d="m7 0a7 7 0 1 0 7 7 7 7 0 0 0 -7-7zm.6 11h-1.2v-5.41h1.2zm0-6.89h-1.2v-1.11h1.2z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="map__caption__body js-mapCaptionBody">
+          <?php foreach ($page->caption()->toStructure() as $caption) : ?>
+            <div class="map__caption__item js-mapCaptionItem" style="--color: <?= $caption->color() ?>">
+              <span class="map__caption__subtitle"><?= $caption->title()->smartypants() ?></span>
+              <span>Number of stores: <?= $caption->numberOfStores()->value() ?></span>
+              <span>Commonly sold: <?php e($caption->sold()->isNotEmpty(), $caption->sold(), '/') ?></span>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
     </div>
   </article>
 </section>

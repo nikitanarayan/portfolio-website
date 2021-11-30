@@ -52,7 +52,7 @@
   <meta name="twitter:description" content="<?= $page->createDescription() ?>">
   <meta name="twitter:image" content="<?= $page->createImage() ?>">
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
 
   <?= css('assets/css/bundle.css') ?>
 </head>

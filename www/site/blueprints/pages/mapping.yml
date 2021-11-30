@@ -77,3 +77,33 @@ tabs:
             layout: cards
             size: small
             template: image
+  
+  map:
+    label: Map
+    icon: map
+    fields:
+      caption:
+        label: Map caption
+        type: structure
+        fields:
+          title:
+            label: Title
+            type: text
+            width: 1/2
+          id:
+            label: ID
+            type: text
+            width: 1/2
+          numberOfStores:
+            label: Number of stores
+            type: number
+            width: 1/6
+          sold: 
+            label: Commonly sold
+            type: text
+            width: 1/2
+          color: 
+            label: Color
+            type: colors
+            contrast: true
+            width: 1/3
