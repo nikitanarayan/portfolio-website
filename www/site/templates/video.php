@@ -5,7 +5,7 @@
     <div class="video__col video__col--video video__col--fixed js-videoBlock js-videoContainer">
       <div>
         <div class="video__col__inner">
-          <video class="video__source js-videoSource" poster="<?= $page->files()->template('image')->first()->url() ?>">
+          <video class="video__source js-videoSource" poster="<?= $page->files()->template('image')->first()->url() ?>" playsinline>
             <source type="video/mp4" src="<?= $page->files()->template('video')->first()->url() ?>" />
           </video>
         </div>

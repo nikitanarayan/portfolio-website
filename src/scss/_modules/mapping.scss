@@ -1,42 +1,65 @@
 .mapping {
-  @include padding(0 2);
+  @include padding(0 1.5);
+
+  @include mq(sm) {
+    @include padding(0 2);
+  }
 }
 
 .mapping__inner {
   display: grid;
-  grid-template-columns: repeat(14, minmax(0, 1fr));
+  grid-template-columns: repeat(1, minmax(0, 1fr));
   grid-column-gap: var(--margin-lg);
   height: 100%;
+
+  @include mq(sm) {
+    grid-template-columns: repeat(14, minmax(0, 1fr));
+  }
 }
 
 .mapping__col {
-  @include padding(2 0);
+  @include padding(1.5 0);
   position: relative;
 
+  @include mq(sm) {
+    @include padding(2 0);
+  }
+
   &--videos {
-    grid-column: 1 / 5;
+    @include mq(sm) {
+      grid-column: 1 / 5;
+    }
   }
 
   &--map {
-    grid-column: 5 / 15;
+    @include mq(sm) {
+      grid-column: 5 / 15;
+    }
 
     &:before {
       content: "";
-      display: inline-block;
+      display: none;
       position: absolute;
       height: calc(var(--content-height) - var(--margin-lg) * 2);
       width: 0;
       top: var(--margin-lg);
       border-left: 1px solid var(--color-secondary);
       left: calc(var(--margin-sm) * -1);
+
+      @include mq(sm) {
+        display: inline-block;
+      }
     }
   }
 
   &--fixed {
     height: var(--content-height);
-    position: -webkit-sticky;
-    position: sticky;
-    top: var(--top-height);
+
+    @include mq(sm) {
+      position: -webkit-sticky;
+      position: sticky;
+      top: var(--top-height);
+    }
   }
 }
 
@@ -109,20 +132,25 @@
 }
 
 .mapping__video {
-  @include padding(2);
-  width: calc(#{getWidth(10)} + var(--margin-lg) + var(--margin-sm) - 1px);
+  @include padding(1.5 0);
+  width: 100%;
   position: fixed;
   height: var(--content-height);
   top: var(--top-height);
   right: 0;
   background-color: rgba(255, 255, 255, 0.8);
-  padding-left: calc(#{getWidth(1)} + var(--margin-lg));
-  padding-right: calc(#{getWidth(1)} + var(--margin-lg));
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   cursor: pointer;
+
+  @include mq(sm) {
+    @include padding(2);
+    width: calc(#{getWidth(10)} + var(--margin-lg) + var(--margin-sm) - 1px);
+    padding-left: calc(#{getWidth(1)} + var(--margin-lg));
+    padding-right: calc(#{getWidth(1)} + var(--margin-lg));
+  }
 
   & > div {
     width: 100%;
@@ -137,11 +165,23 @@
     left: 0;
     background-color: black;
     padding: 0;
+
+    & > div {
+      &:first-child {
+        height: 100%;
+      }
+    }
   }
 }
 
 .mapping__video__inner {
   height: 100%;
+
+  .content.fullscreen & {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   video {
     width: 100%;
@@ -152,11 +192,15 @@
 }
 
 .mapping__video__footer {
-  @include padding(2);
+  @include padding(1.5);
   display: flex;
   justify-content: space-between;
   background-color: var(--color-secondary);
   color: var(--color-tertiary);
+
+  @include mq(sm) {
+    @include padding(2);
+  }
 }
 
 .mapping__video__player {

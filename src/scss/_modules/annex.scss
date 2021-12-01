@@ -1,15 +1,26 @@
 .annex {
-  @include padding(2);
+  @include padding(1.5);
+
+  @include mq(sm) {
+    @include padding(2);
+  }
 }
 
 .annex__inner {
   display: grid;
-  grid-template-columns: repeat(14, minmax(0, 1fr));
+  grid-template-columns: repeat(1, minmax(0, 1fr));
   grid-column-gap: var(--margin-lg);
   height: 100%;
+
+  @include mq(sm) {
+    grid-template-columns: repeat(14, minmax(0, 1fr));
+  }
 }
 
 .annex__text {
   @extend .h4, .paragraph;
-  grid-column: 1 / 7;
+
+  @include mq(sm) {
+    grid-column: 1 / 7;
+  }
 }

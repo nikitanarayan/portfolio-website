@@ -1,5 +1,5 @@
 .header {
-  @include padding(2);
+  @include padding(1.5);
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -8,6 +8,10 @@
   background-color: var(--color-text);
   display: flex;
   z-index: 9;
+
+  @include mq(sm) {
+    @include padding(2);
+  }
 
   &,
   a {

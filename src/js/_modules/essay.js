@@ -53,19 +53,34 @@ export default class Essay {
   initClick() {
     $(".js-glossaryCTA")
       .on("mouseenter", (e) => {
-        const index = $(e.currentTarget).data("index") - 1;
-        const item = $(".js-glossaryItem").eq(index);
-        $(".js-glossaryItem").not(item).removeClass("active");
-        $(item).addClass("active");
-        this.scrollToItem(item, $(".js-colGlossary"));
+        if ($("html").hasClass("no-touch")) {
+          const index = $(e.currentTarget).parent().data("index") - 1;
+          const item = $(".js-glossaryItem").eq(index);
+          $(".js-glossaryItem").not(item).removeClass("active");
+          $(item).addClass("active");
+          this.scrollToItem(item, $(".js-colGlossary"));
+        }
       })
       .on("mouseleave", () => {
-        $(".js-glossaryItem").removeClass("active");
+        if ($("html").hasClass("no-touch")) {
+          $(".js-glossaryItem").removeClass("active");
+        }
+      })
+      .on("click", (e) => {
+        if ($("html").hasClass("touch")) {
+          if ($(e.currentTarget).hasClass("active")) {
+            $(e.currentTarget).removeClass("active").next().html("");
+          } else {
+            const index = $(e.currentTarget).parent().data("index") - 1;
+            const text = $(".js-glossaryItem").eq(index).html();
+            $(e.currentTarget).addClass("active").next().html(text);
+          }
+        }
       });
 
     $(".js-figureCTA")
       .on("mouseenter", (e) => {
-        const index = $(e.currentTarget).data("index") - 1;
+        const index = $(e.currentTarget).parent().data("index") - 1;
         const item = $(".js-figureItem").eq(index);
         $(".js-figureItem").not(item).removeClass("active");
         $(item).addClass("active");

@@ -48,10 +48,11 @@ export default class Video {
       .off("click")
       .on("click", (e) => {
         const content = $(e.currentTarget).parents(".js-content");
-        $(content).toggleClass("fullscreen");
-        if ($(content).hasClass("fullscreen")) {
+        if (!$(content).hasClass("fullscreen")) {
+          $(content).addClass("fullscreen");
           $(e.currentTarget).text("Remove fullscreen");
         } else {
+          $(content).removeClass("fullscreen");
           $(e.currentTarget).text("Fullscreen");
         }
       });
@@ -83,7 +84,7 @@ export default class Video {
         `<div class="mapping__video playing js-mappingVideo js-videoContainer">
           <div class="js-mappingVideoInner">
             <div class="mapping__video__inner">
-              <video class="mapping__video__source js-videoSource" poster="${poster}">
+              <video class="mapping__video__source js-videoSource" poster="${poster}" playsinline>
                 <source type="video/mp4" src="${video}" />
               </video>
             </div>

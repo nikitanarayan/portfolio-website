@@ -9,7 +9,7 @@
       </svg>
     </div>
     <div class="header__count">
-      <span class="js-headerCount"><?= toDigit($page->num(), 2) ?></span>/<?= toDigit($site->children()->listed()->count(), 2) ?>
+      <span class="js-headerCount"><?php e($page->isHomePage(), '01', toDigit($page->num(), 2)) ?></span>/<?= toDigit($site->children()->listed()->count(), 2) ?>
     </div>
     <div class="header__arrow header__arrow--e js-menuNext">
       <svg viewBox="0 0 19 7" xmlns="http://www.w3.org/2000/svg">

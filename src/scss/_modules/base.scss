@@ -15,12 +15,13 @@
     font-style: italic;
   }
 
-  .glossary__item,
-  .figure {
+  .glossary__item__title,
+  .figure__val {
     background-color: var(--color-secondary);
     cursor: crosshair;
 
-    &:hover {
+    .no-touch &:hover,
+    .touch &.active {
       background-color: var(--color-primary);
     }
   }

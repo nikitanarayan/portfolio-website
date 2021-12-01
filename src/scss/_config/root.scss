@@ -35,8 +35,9 @@
   --space-xl: #{getLineHeight(sm, mobile) * map-get($space-m, xl)};
   --space-xxl: #{getLineHeight(sm, mobile) * map-get($space-m, xxl)};
 
-  --header-height: calc(var(--lh) + var(--margin-lg) * 2);
+  --header-height: calc(var(--lh) + var(--margin-sm) * 3);
   --content-height: calc(100vh - var(--top-height));
+  --content-height: calc((var(--vh, 1vh) * 100) - var(--top-height));
 
   @include mq(sm) {
     --fs: #{getFontSize(sm, desktop)};
@@ -65,5 +66,7 @@
     --space-lg: #{getLineHeight(sm, desktop) * map-get($space-d, lg)};
     --space-xl: #{getLineHeight(sm, desktop) * map-get($space-d, xl)};
     --space-xxl: #{getLineHeight(sm, desktop) * map-get($space-d, xxl)};
+
+    --header-height: calc(var(--lh) + var(--margin-lg) * 2);
   }
 }

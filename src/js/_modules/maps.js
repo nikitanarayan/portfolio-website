@@ -4,6 +4,10 @@ export default class Maps {
   constructor() {
     this.init();
     this.initCaption();
+
+    $(window).on("resize", () => {
+      this.toggleZoom();
+    });
   }
 
   init() {
@@ -82,7 +86,16 @@ export default class Maps {
           maxZoom: 20,
           minZoom: 15,
         });
+        this.toggleZoom();
         this.initPopups();
       });
+  }
+
+  toggleZoom() {
+    if (window.matchMedia("(min-width: 576px)").matches) {
+      this.map.scrollZoom.enable();
+    } else {
+      this.map.scrollZoom.disable();
+    }
   }
 }

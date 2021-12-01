@@ -34,12 +34,16 @@
 }
 
 .menu__inner {
-  @include padding(2 0);
+  @include padding(1.5 0);
   outline: none;
   overflow: hidden;
   display: flex;
   align-items: flex-start;
   position: relative;
+
+  @include mq(sm) {
+    @include padding(2 0);
+  }
 }
 
 .flickity-viewport,
@@ -50,18 +54,22 @@
 }
 
 .menu__item {
-  --menu-item: #{getWidth(3)};
+  --menu-item: #{getWidth(12)};
   @include padding(1);
   width: var(--menu-item);
   background-color: var(--color-grey);
   margin-right: var(--margin-lg);
   flex: 0 0 var(--menu-item);
 
+  @include mq(sm) {
+    --menu-item: #{getWidth(3)};
+  }
+
   &.active {
     background-color: var(--color-primary);
   }
 
-  &:not(.active):hover {
+  .no-touch &:not(.active):hover {
     background-color: var(--color-primary-transparent);
   }
 }

@@ -1,30 +1,48 @@
 .video {
-  @include padding(0 2);
+  @include padding(0 1.5);
+
+  @include mq(sm) {
+    @include padding(0 2);
+  }
 }
 
 .video__inner {
   display: grid;
-  grid-template-columns: repeat(14, minmax(0, 1fr));
+  grid-template-columns: repeat(1, minmax(0, 1fr));
   grid-column-gap: var(--margin-lg);
   height: 100%;
+
+  @include mq(sm) {
+    grid-template-columns: repeat(14, minmax(0, 1fr));
+  }
 }
 
 .video__col {
-  @include padding(2 0);
+  @include padding(1.5 0);
   position: relative;
 
+  @include mq(sm) {
+    @include padding(2 0);
+  }
+
   &--video {
-    grid-column: 1 / 11;
+    @include mq(sm) {
+      grid-column: 1 / 11;
+    }
 
     &:after {
       content: "";
-      display: inline-block;
+      display: none;
       position: absolute;
       height: calc(var(--content-height) - var(--margin-lg) * 2);
       width: 0;
       top: var(--margin-lg);
       border-left: 1px solid var(--color-secondary);
       right: calc(var(--margin-sm) * -1);
+
+      @include mq(sm) {
+        display: inline-block;
+      }
     }
 
     & > div {
@@ -42,22 +60,39 @@
       left: 0;
       background-color: black;
       padding: 0;
+      z-index: 999;
+
+      & > div {
+        &:first-child {
+          height: 100%;
+        }
+      }
     }
   }
 
   &--text {
-    grid-column: 11 / 15;
+    @include mq(sm) {
+      grid-column: 11 / 15;
+    }
   }
 
   &--fixed {
-    height: var(--content-height);
-    position: -webkit-sticky;
-    position: sticky;
-    top: var(--top-height);
+    @include mq(sm) {
+      height: var(--content-height);
+      position: -webkit-sticky;
+      position: sticky;
+      top: var(--top-height);
+    }
   }
 }
 
 .video__col__inner {
+  .content.fullscreen & {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   video {
     width: 100%;
     max-height: 100%;
@@ -67,11 +102,15 @@
 }
 
 .video__footer {
-  @include padding(2);
+  @include padding(1.5);
   display: flex;
   justify-content: space-between;
   background-color: var(--color-secondary);
   color: var(--color-tertiary);
+
+  @include mq(sm) {
+    @include padding(2);
+  }
 }
 
 .video__player {

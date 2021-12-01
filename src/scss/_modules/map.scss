@@ -1,9 +1,16 @@
 .map {
-  @include margin(-2 -1 -2 -0.9);
+  @include margin(-1.5);
   height: calc(100% + var(--margin-lg) * 2);
-  width: calc(100% + var(--margin-md) * 2 - 1px);
+  width: calc(100% + var(--margin-md) * 2);
   background-color: var(--color-bg);
   position: relative;
+  border-top: 1px solid var(--color-secondary);
+
+  @include mq(sm) {
+    @include margin(-2 -1 -2 -0.9);
+    width: calc(100% + var(--margin-md) * 2 - 1px);
+    border-top: none;
+  }
 }
 
 .mapboxgl-control-container {
@@ -26,21 +33,31 @@
 }
 
 .map__caption {
-  position: fixed;
-  bottom: 0;
+  position: absolute;
+  bottom: calc(var(--margin-sm) * -1.5);
   display: flex;
-  width: calc(getWidth(10) + var(--margin-lg) + var(--margin-sm));
-  right: 0;
+  width: calc(100% + var(--margin-sm) * 3);
+  right: calc(var(--margin-sm) * -1.5);
   background-color: var(--color-grey);
   flex-direction: column;
+
+  @include mq(sm) {
+    position: fixed;
+    bottom: 0;
+    width: calc(getWidth(10) + var(--margin-lg) + var(--margin-sm));
+  }
 }
 
 .map__caption__title {
-  @include padding(1.5 2);
+  @include padding(1.5);
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
   border-bottom: 1px solid var(--color-secondary);
+
+  @include mq(sm) {
+    @include padding(1.5 2);
+  }
 
   & > div  {
     display: flex;
@@ -59,13 +76,17 @@
 
 .map__caption__body {
   @extend .h6;
-  @include padding(1.5 2);
-  -webkit-column-count: 2;
-  column-count: 2;
-  -webkit-column-gap: var(--margin-lg);
-  column-gap: var(--margin-lg);
+  @include padding(1.5);
   line-height: 12px;
   display: none;
+
+  @include mq(sm) {
+    @include padding(1.5 2);
+    -webkit-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: var(--margin-lg);
+    column-gap: var(--margin-lg);
+  }
 }
 
 .map__caption__item {
@@ -91,4 +112,5 @@
 
 .map__caption__subtitle {
   font-weight: bold;
+  text-align: center;
 }
