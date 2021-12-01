@@ -28,6 +28,10 @@
 
   &--image {
     @include mq(sm) {
+      grid-column: 1 / 10;
+    }
+
+    @include mq(lg) {
       grid-column: 1 / 11;
     }
 
@@ -49,10 +53,14 @@
 
   &--text {
     @include mq(sm) {
-      grid-column: 11 / 15;
+      grid-column: 10 / 15;
       position: -webkit-sticky;
       position: sticky;
       top: calc(var(--margin-lg) + var(--top-height));
+    }
+
+    @include mq(lg) {
+      grid-column: 11 / 15;
     }
   }
 

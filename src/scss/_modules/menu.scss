@@ -61,7 +61,15 @@
   margin-right: var(--margin-lg);
   flex: 0 0 var(--menu-item);
 
+  @include mq(xs) {
+    --menu-item: #{getWidth(9)};
+  }
+
   @include mq(sm) {
+    --menu-item: #{getWidth(5)};
+  }
+
+  @include mq(lg) {
     --menu-item: #{getWidth(3)};
   }
 

@@ -21,6 +21,10 @@
   @extend .h4, .paragraph;
 
   @include mq(sm) {
+    grid-column: 1 / 9;
+  }
+
+  @include mq(lg) {
     grid-column: 1 / 7;
   }
 }

@@ -92,7 +92,7 @@ export default class Maps {
   }
 
   toggleZoom() {
-    if (window.matchMedia("(min-width: 576px)").matches) {
+    if (window.matchMedia("(min-width: 800px)").matches) {
       this.map.scrollZoom.enable();
     } else {
       this.map.scrollZoom.disable();

@@ -53,7 +53,7 @@ export default class Essay {
   initClick() {
     $(".js-glossaryCTA")
       .on("mouseenter", (e) => {
-        if ($("html").hasClass("no-touch")) {
+        if (window.matchMedia("(min-width: 800px)").matches) {
           const index = $(e.currentTarget).parent().data("index") - 1;
           const item = $(".js-glossaryItem").eq(index);
           $(".js-glossaryItem").not(item).removeClass("active");
@@ -62,12 +62,12 @@ export default class Essay {
         }
       })
       .on("mouseleave", () => {
-        if ($("html").hasClass("no-touch")) {
+        if (window.matchMedia("(min-width: 800px)").matches) {
           $(".js-glossaryItem").removeClass("active");
         }
       })
       .on("click", (e) => {
-        if ($("html").hasClass("touch")) {
+        if (!window.matchMedia("(min-width: 800px)").matches) {
           if ($(e.currentTarget).hasClass("active")) {
             $(e.currentTarget).removeClass("active").next().html("");
           } else {

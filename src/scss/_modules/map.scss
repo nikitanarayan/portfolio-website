@@ -44,6 +44,11 @@
   @include mq(sm) {
     position: fixed;
     bottom: 0;
+    width: calc(getWidth(9) + var(--margin-lg) + var(--margin-sm));
+    right: 0;
+  }
+
+  @include mq(lg) {
     width: calc(getWidth(10) + var(--margin-lg) + var(--margin-sm));
   }
 }
