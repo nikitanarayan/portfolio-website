@@ -9,7 +9,7 @@
       </svg>
     </div>
     <div class="header__count">
-      <span class="js-headerCount"><?php e($page->isHomePage(), '01', toDigit($page->num(), 2)) ?></span>/<?= toDigit($site->children()->listed()->count(), 2) ?>
+      Project <span class="js-headerCount"><?php e($page->isHomePage(), '01', toDigit($page->num(), 2)) ?></span>/<?= toDigit($site->children()->listed()->filterBy('template', '!=', 'annex')->count(), 2) ?>
     </div>
     <div class="header__arrow header__arrow--e js-menuNext">
       <svg viewBox="0 0 19 7" xmlns="http://www.w3.org/2000/svg">
@@ -18,10 +18,6 @@
     </div>
   </div>
   <div class="header__section header__section--right">
-    <a class="header__about" href="<?= page('about')->url() ?>">
-      <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
-        <path d="m7 0a7 7 0 1 0 7 7 7 7 0 0 0 -7-7zm.6 11h-1.2v-5.41h1.2zm0-6.89h-1.2v-1.11h1.2z" />
-      </svg>
-    </a>
+    <a class="header__about" href="<?= page('about')->url() ?>"><?= page('about')->title() ?></a>
   </div>
 </header>

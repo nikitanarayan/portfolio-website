@@ -8,13 +8,17 @@ tabs:
       sectionA:
         type: pages
         headline: Menu pages
-        info: "{{ page.subtitle }} / {{ page.identification }}"
+        info: "{{ page.subtitle }}"
         image: false
         templates:
           - essay
           - mapping
           - video
           - datavisualisation
-          - annex
+      sectionB:
+        type: pages
+        headline: About
+        image: false
+        template: annex
 
   seo: tabs/seo

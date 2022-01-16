@@ -29,31 +29,35 @@
         <?php endforeach; ?>
       </div>
     </div>
-    <div class="essay__col essay__col--fixed essay__col--images js-colImages">
-      <div class="essay__figures">
-        <?php foreach ($page->getFigures() as $image) : ?>
-          <div class='essay__figure js-figureItem'>
-            <div class="essay__figure__image">
-              <img src="<?= $image->url() ?>">
+    <div class="essay__col essay__col--fixed essay__col--scroll essay__col--images js-colImages">
+      <div class="essay__scroll js-essayScrollFigure">
+        <div class="essay__figures">
+          <?php foreach ($page->getFigures() as $image) : ?>
+            <div class='essay__figure js-figureItem'>
+              <div class="essay__figure__image">
+                <img src="<?= $image->url() ?>">
+              </div>
+              <div class="essay__figure__caption">
+                <p>Fig.<?= $image->sort() ?></p>
+                <p><?= $image->caption()->kirbytextinline() ?></p>
+              </div>
             </div>
-            <div class="essay__figure__caption">
-              <p>Fig.<?= $image->sort() ?></p>
-              <p><?= $image->caption()->kirbytextinline() ?></p>
-            </div>
-          </div>
-        <?php endforeach; ?>
+          <?php endforeach; ?>
+        </div>
       </div>
     </div>
-    <div class="essay__col essay__col--fixed essay__col--glossary js-colGlossary">
-      <ul class="essay__glossary">
-        <?php foreach ($page->text()->toBlocks() as $block) : ?>
-          <?php foreach ($block->glossary()->toStructure() as $definition) : ?>
-            <li class="essay__glossary__item js-glossaryItem">
-              <?= $definition->text()->kt() ?>
-            </li>
+    <div class="essay__col essay__col--fixed essay__col--scroll essay__col--glossary js-colGlossary">
+      <div class="essay__scroll js-essayScrollGlossary">
+        <ul class="essay__glossary">
+          <?php foreach ($page->text()->toBlocks() as $block) : ?>
+            <?php foreach ($block->glossary()->toStructure() as $definition) : ?>
+              <li class="essay__glossary__item js-glossaryItem">
+                <?= $definition->text()->kt() ?>
+              </li>
+            <?php endforeach; ?>
           <?php endforeach; ?>
-        <?php endforeach; ?>
-      </ul>
+        </ul>
+      </div>
     </div>
   </article>
 </section>

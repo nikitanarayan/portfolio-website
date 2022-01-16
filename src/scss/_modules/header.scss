@@ -8,6 +8,10 @@
   background-color: var(--color-text);
   display: flex;
   z-index: 9;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   @include mq(sm) {
     @include padding(2);
@@ -34,17 +38,6 @@
 
   &--right {
     justify-content: flex-end;
-  }
-}
-
-.header__about {
-  display: flex;
-  height: 14px;
-  width: 14px;
-
-  svg {
-    width: 100%;
-    fill: var(--color-secondary);
   }
 }
 

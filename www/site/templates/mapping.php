@@ -46,9 +46,11 @@
         <div class="map__caption__body js-mapCaptionBody">
           <?php foreach ($page->caption()->toStructure() as $caption) : ?>
             <div class="map__caption__item js-mapCaptionItem" style="--color: <?= $caption->color() ?>">
-              <span class="map__caption__subtitle"><?= $caption->title()->smartypants() ?></span>
-              <span>Number of stores: <?= $caption->numberOfStores()->value() ?></span>
-              <span>Commonly sold: <?php e($caption->sold()->isNotEmpty(), $caption->sold(), '/') ?></span>
+              <div>
+                <span class="map__caption__subtitle"><?= $caption->title()->smartypants() ?></span>
+                <span>Number of stores: <?= $caption->numberOfStores()->value() ?></span>
+                <span>Commonly sold: <?php e($caption->sold()->isNotEmpty(), $caption->sold(), '/') ?></span>
+              </div>
             </div>
           <?php endforeach; ?>
         </div>

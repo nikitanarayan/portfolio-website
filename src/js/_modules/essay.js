@@ -8,37 +8,66 @@ export default class Essay {
   }
 
   initScroll() {
-    const height = $(".js-header").outerHeight() + $(".js-menuContainer").outerHeight();
-    const rootMargin = `-${height}px 0px 0px 0px`;
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            this.addActive(entry);
-          } else {
-            this.removeActive(entry);
-          }
-        });
-      },
-      {
-        rootMargin: rootMargin,
-        threshold: 0,
-      }
-    );
+    this.manualScroll = true;
+    this.currentFigure = null;
+    this.currentGlossary = null;
 
-    $(".js-essayChapter").each((i, el) => {
-      observer.observe($(el)[0]);
+    $(window).on("scroll", () => {
+      this.checkActiveMenuItem();
+      this.checkActive(".js-figureCTA", ".js-colImages", "currentFigure", ".js-figureItem");
+      this.checkActive(".js-glossaryCTA", ".js-colGlossary", "currentGlossary", ".js-glossaryItem");
+    });
+
+    $(".js-essayScrollFigure").on("scroll", (e) => {
+      if (this.manualScroll) this.checkActive(".js-figureItem", ".js-colImages", "currentFigure");
+    });
+
+    $(".js-essayScrollGlossary").on("scroll", (e) => {
+      if (this.manualScroll) this.checkActive(".js-glossaryItem", ".js-colGlossary", "currentGlossary");
     });
   }
 
-  addActive(item) {
-    const id = $(item.target).attr("id");
-    $(`.js-essayMenuItem[href="#${id}"]`).parent().addClass("active");
+  checkActiveMenuItem() {
+    const active = $(".js-essayChapter")
+      .filter((i, el) => {
+        const top = $(el)[0].getBoundingClientRect().top;
+        const bottom = $(el)[0].getBoundingClientRect().bottom;
+        const min = $(".js-header").outerHeight() + $(".js-menuContainer").outerHeight() + 1;
+        const max = $(window).innerHeight();
+        return top < max && bottom > min;
+      })
+      .get();
+
+    const activeItem = $(active).first();
+    $(`.js-essayMenuItem[href="#${$(activeItem).attr("id")}"]`)
+      .parent()
+      .addClass("active");
+
+    $(".js-essayChapter")
+      .not(activeItem)
+      .each((i, el) => {
+        $(`.js-essayMenuItem[href="#${$(el).attr("id")}"]`)
+          .parent()
+          .removeClass("active");
+      });
   }
 
-  removeActive(item) {
-    const id = $(item.target).attr("id");
-    $(`.js-essayMenuItem[href="#${id}"]`).parent().removeClass("active");
+  checkActive(items, scrolledCol, globalVar, itemToScrollTo) {
+    const active = $(items)
+      .filter((i, el) => {
+        const top = $(el)[0].getBoundingClientRect().top;
+        const bottom = $(el)[0].getBoundingClientRect().bottom;
+        const min = $(".js-header").outerHeight() + $(".js-menuContainer").outerHeight() + 1;
+        const max = $(window).innerHeight();
+        return top < max && bottom > min;
+      })
+      .get();
+
+    const activeItem = $(items).index($(active).first());
+    if (activeItem != this[globalVar]) {
+      this[globalVar] = activeItem;
+      if (itemToScrollTo) this.scrollToItem(activeItem, scrolledCol, itemToScrollTo);
+    }
   }
 
   initMenu() {
@@ -91,9 +120,15 @@ export default class Essay {
       });
   }
 
-  scrollToItem(item, container) {
-    const offset = $(item).offset().top - $(item).offsetParent().offset().top - 15;
-    const scrollContainer = $(container).children().first();
-    gsap.to($(scrollContainer), { y: "-=" + offset, duration: 0.3 });
+  scrollToItem(index, container, itemToScrollTo) {
+    if (index > -1) {
+      const item = $(itemToScrollTo).eq(index);
+      const scrollContainer = $(container).children().first();
+      const offset = $(item).offset().top - $(scrollContainer).offset().top - 15 + $(scrollContainer).scrollTop();
+      this.manualScroll = false;
+      $(scrollContainer).animate({ scrollTop: offset }, 300, () => {
+        this.manualScroll = true;
+      });
+    }
   }
 }

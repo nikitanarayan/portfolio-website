@@ -111,6 +111,25 @@
       top: var(--top-height);
     }
   }
+
+  &--scroll {
+    @include mq(sm) {
+      padding: 0;
+    }
+  }
+}
+
+.essay__scroll {
+  @include mq(sm) {
+    @include padding(2 0);
+    overflow: auto;
+    height: 100%;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
 
 .essay__text {

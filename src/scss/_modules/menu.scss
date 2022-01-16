@@ -60,6 +60,10 @@
   background-color: var(--color-grey);
   margin-right: var(--margin-lg);
   flex: 0 0 var(--menu-item);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 
   @include mq(xs) {
     --menu-item: #{getWidth(9)};

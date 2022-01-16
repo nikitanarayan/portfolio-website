@@ -64,7 +64,7 @@
     @include padding(1.5 2);
   }
 
-  & > div  {
+  & > div {
     display: flex;
   }
 }
@@ -95,6 +95,16 @@
 }
 
 .map__caption__item {
+  display: flex;
+  align-items: baseline;
+  page-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  break-inside: avoid-column;
+
+  & > div {
+    flex: 1;
+  }
+
   &:before {
     @include margin(0 0.5 0 0);
     content: "";
