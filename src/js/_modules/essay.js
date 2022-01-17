@@ -25,6 +25,16 @@ export default class Essay {
     $(".js-essayScrollGlossary").on("scroll", (e) => {
       if (this.manualScroll) this.checkActive(".js-glossaryItem", ".js-colGlossary", "currentGlossary");
     });
+
+    $(".js-figureItem").on("click", (e) => {
+      $(".js-colImages").parent().toggleClass("zoomed");
+      if ($(".js-colImages").parent().hasClass("zoomed")) {
+        const index = $(".js-figureItem").index(e.currentTarget);
+        setTimeout(() => {
+          this.scrollToItem(index, ".js-colImages", ".js-figureItem");
+        }, 300);
+      }
+    });
   }
 
   checkActiveMenuItem() {
@@ -87,7 +97,7 @@ export default class Essay {
           const item = $(".js-glossaryItem").eq(index);
           $(".js-glossaryItem").not(item).removeClass("active");
           $(item).addClass("active");
-          this.scrollToItem(item, $(".js-colGlossary"));
+          this.scrollToItem(index, ".js-colGlossary", ".js-glossaryItem");
         }
       })
       .on("mouseleave", () => {
@@ -113,7 +123,7 @@ export default class Essay {
         const item = $(".js-figureItem").eq(index);
         $(".js-figureItem").not(item).removeClass("active");
         $(item).addClass("active");
-        this.scrollToItem(item, $(".js-colImages"));
+        this.scrollToItem(index, ".js-colImages", ".js-figureItem");
       })
       .on("mouseleave", () => {
         $(".js-figureItem").removeClass("active");
@@ -123,10 +133,9 @@ export default class Essay {
   scrollToItem(index, container, itemToScrollTo) {
     if (index > -1) {
       const item = $(itemToScrollTo).eq(index);
-      const scrollContainer = $(container).children().first();
-      const offset = $(item).offset().top - $(scrollContainer).offset().top - 15 + $(scrollContainer).scrollTop();
+      const offset = $(item).offset().top - $(container).offset().top - 15 + $(container).scrollTop();
       this.manualScroll = false;
-      $(scrollContainer).animate({ scrollTop: offset }, 300, () => {
+      $(container).animate({ scrollTop: offset }, 300, () => {
         this.manualScroll = true;
       });
     }

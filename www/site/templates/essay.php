@@ -29,8 +29,8 @@
         <?php endforeach; ?>
       </div>
     </div>
-    <div class="essay__col essay__col--fixed essay__col--scroll essay__col--images js-colImages">
-      <div class="essay__scroll js-essayScrollFigure">
+    <div class="essay__col essay__col--fixed essay__col--double">
+      <div class="essay__scroll js-essayScrollFigure js-colImages">
         <div class="essay__figures">
           <?php foreach ($page->getFigures() as $image) : ?>
             <div class='essay__figure js-figureItem'>
@@ -45,9 +45,7 @@
           <?php endforeach; ?>
         </div>
       </div>
-    </div>
-    <div class="essay__col essay__col--fixed essay__col--scroll essay__col--glossary js-colGlossary">
-      <div class="essay__scroll js-essayScrollGlossary">
+      <div class="essay__scroll js-essayScrollGlossary js-colGlossary">
         <ul class="essay__glossary">
           <?php foreach ($page->text()->toBlocks() as $block) : ?>
             <?php foreach ($block->glossary()->toStructure() as $definition) : ?>

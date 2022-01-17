@@ -59,12 +59,11 @@
     }
   }
 
-  &--images,
-  &--glossary {
+  &--double {
     display: none;
 
     @include mq(sm) {
-      display: block;
+      display: flex;
     }
 
     &:before {
@@ -81,25 +80,59 @@
         display: inline-block;
       }
     }
-  }
 
-  &--images {
+    &:after {
+      @extend .transition;
+      transition-property: left;
+      content: "";
+      display: none;
+      position: absolute;
+      height: calc(var(--content-height) - var(--margin-lg) * 2);
+      width: 0;
+      top: var(--margin-lg);
+      border-left: 1px solid var(--color-secondary);
+      left: calc((100% - var(--margin-lg) * 4) / 7 * 4 + var(--margin-lg) * 3.5);
+
+      @include mq(sm) {
+        display: inline-block;
+        left: calc((100% - var(--margin-lg) * 4) / 5 * 3 + var(--margin-lg) * 2.5);
+      }
+    }
+
+    &.zoomed:after {
+      left: 100%;
+    }
+
     @include mq(sm) {
-      grid-column: 8 / 12;
+      grid-column: 8 / 15;
+      padding: 0;
     }
 
-    @include mq(lg) {
-      grid-column: 10 / 13;
-    }
-  }
-
-  &--glossary {
     @include mq(sm) {
-      grid-column: 12 / 15;
+      grid-column: 10 / 15;
     }
 
-    @include mq(lg) {
-      grid-column: 13 / 15;
+    & > div {
+      &:nth-child(1) {
+        @include mq(sm) {
+          flex-basis: calc((100% - var(--margin-lg) * 4) / 7 * 4 + var(--margin-lg) * 3);
+          margin-right: var(--margin-lg);
+        }
+
+        @include mq(lg) {
+          flex-basis: calc((100% - var(--margin-lg) * 4) / 5 * 3 + var(--margin-lg) * 2);
+        }
+      }
+
+      &:nth-child(2) {
+        @include mq(sm) {
+          flex-basis: calc((100% - var(--margin-lg) * 4) / 7 * 3 + var(--margin-lg) * 2);
+        }
+
+        @include mq(lg) {
+          flex-basis: calc((100% - var(--margin-lg) * 4) / 5 * 2 + var(--margin-lg) * 1);
+        }
+      }
     }
   }
 
@@ -111,15 +144,12 @@
       top: var(--top-height);
     }
   }
-
-  &--scroll {
-    @include mq(sm) {
-      padding: 0;
-    }
-  }
 }
 
 .essay__scroll {
+  @extend .transition;
+  transition-property: flex-basis, margin-right;
+
   @include mq(sm) {
     @include padding(2 0);
     overflow: auto;
@@ -128,6 +158,17 @@
 
     &::-webkit-scrollbar {
       display: none;
+    }
+  }
+
+  .zoomed & {
+    &:nth-child(1) {
+      flex-basis: 100% !important;
+      margin-right: var(--margin-sm) !important;
+    }
+
+    &:nth-child(2) {
+      flex-basis: 0 !important;
     }
   }
 }
@@ -171,6 +212,11 @@
 
 .essay__figure {
   padding: 2px;
+  cursor: zoom-in;
+
+  .essay__col.zoomed & {
+    cursor: zoom-out;
+  }
 
   &:not(:last-child) {
     @include margin(0 0 4 0);
