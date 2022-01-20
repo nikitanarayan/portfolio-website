@@ -9,7 +9,7 @@
             return $block->title()->isNotEmpty();
           }) as $block) : ?>
             <li class="essay__menu__item">
-              <a class="js-essayMenuItem" href="#<?= Str::slug($block->title()) ?>"><?= $block->title()->kt() ?></a>
+              <a class="js-essayMenuItem" href="#<?= Str::slug($block->title()) ?>"><?= preg_replace('/\(glossary: \d+ text: (.*)\)/', '$1', $block->title(), 1) ?></a>
             </li>
           <?php endforeach; ?>
         </ul>

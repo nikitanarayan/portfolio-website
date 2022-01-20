@@ -135,9 +135,11 @@ export default class Essay {
       const item = $(itemToScrollTo).eq(index);
       const offset = $(item).offset().top - $(container).offset().top - 15 + $(container).scrollTop();
       this.manualScroll = false;
-      $(container).animate({ scrollTop: offset }, 300, () => {
-        this.manualScroll = true;
-      });
+      $(container)
+        .stop(true, false)
+        .animate({ scrollTop: offset }, 300, () => {
+          this.manualScroll = true;
+        });
     }
   }
 }
