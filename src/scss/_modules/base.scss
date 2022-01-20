@@ -34,6 +34,11 @@
   }
 }
 
+.home {
+  background-color: var(--color-grey);
+  height: calc(100vh - var(--top-height));
+}
+
 @function getWidth($column) {
   @return calc((100vw - var(--margin-lg) * (var(--columns) + 1)) / var(--columns) * #{$column} + var(--margin-lg) * (#{$column} - 1));
 }

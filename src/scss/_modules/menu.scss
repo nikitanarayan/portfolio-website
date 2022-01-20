@@ -1,4 +1,7 @@
 .menu {
+  --opacity-left: 1;
+  --opacity-right: 1;
+  --menu-item: #{getWidth(12)};
   position: -webkit-sticky;
   position: sticky;
   top: var(--header-height);
@@ -18,6 +21,7 @@
     height: 100%;
     z-index: 1;
     pointer-events: none;
+    opacity: var(--opacity-left);
   }
 
   &:after {
@@ -30,6 +34,19 @@
     height: 100%;
     z-index: 1;
     pointer-events: none;
+    opacity: var(--opacity-right);
+  }
+
+  @include mq(xs) {
+    --menu-item: #{getWidth(9)};
+  }
+
+  @include mq(sm) {
+    --menu-item: #{getWidth(5)};
+  }
+
+  @include mq(lg) {
+    --menu-item: #{getWidth(3)};
   }
 }
 
@@ -54,28 +71,15 @@
 }
 
 .menu__item {
-  --menu-item: #{getWidth(12)};
   @include padding(1);
   width: var(--menu-item);
   background-color: var(--color-grey);
   margin-right: var(--margin-lg);
   flex: 0 0 var(--menu-item);
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-
-  @include mq(xs) {
-    --menu-item: #{getWidth(9)};
-  }
-
-  @include mq(sm) {
-    --menu-item: #{getWidth(5)};
-  }
-
-  @include mq(lg) {
-    --menu-item: #{getWidth(3)};
-  }
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   &.active {
     background-color: var(--color-primary);
@@ -105,5 +109,27 @@
     border-right: 1px dashed var(--color-secondary);
     position: absolute;
     height: 100%;
+  }
+}
+
+.menu__description {
+  display: none;
+}
+
+.menu__desc {
+  @include padding(0 1 1 1);
+  width: var(--menu-item);
+  position: fixed;
+  background-color: var(--color-primary-transparent);
+  transform: translateY(calc(var(--margin-lg) * -1));
+  z-index: 999;
+  pointer-events: none;
+
+  &.active {
+    background-color: var(--color-primary);
+  }
+
+  .touch & {
+    display: none;
   }
 }

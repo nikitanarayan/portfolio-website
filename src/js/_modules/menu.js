@@ -35,11 +35,23 @@ export default class Menu {
     $(".js-menu").each((i, el) => {
       this.initFlickity(el, slideOptions);
     });
+
+    $(".js-menuItem")
+      .on("mouseenter", (e) => {
+        this.showDescription(e);
+      })
+      .on("mouseleave", (e) => {
+        this.hideDescription(e);
+      });
   }
 
   initFlickity(element, options) {
     const carousel = new Flickity($(element)[0], options);
     carousel.resize();
+
+    carousel.on("dragMove", () => {
+      this.hideDescription();
+    });
 
     $(".js-menuPrev").on("click", () => {
       const allCells = carousel.cells;
@@ -68,5 +80,22 @@ export default class Menu {
       carousel.selectCell(realNextIndex);
       $(".js-headerCount").text(count);
     });
+  }
+
+  showDescription(e) {
+    const text = $(e.currentTarget).find(".js-description").html();
+    const left = $(e.currentTarget)[0].getBoundingClientRect().left;
+    const right = $(e.currentTarget)[0].getBoundingClientRect().right;
+    const top = $(e.currentTarget)[0].getBoundingClientRect().bottom + 16;
+    $(".js-menuContainer").append(`<div class="menu__desc js-menuDescription">${text}</div>`);
+    $(".js-menuDescription").css({ left: left + "px", top: top + "px" });
+    if ($(e.currentTarget).hasClass("active")) $(".js-menuDescription").addClass("active");
+    if (left < $(window).innerWidth() * 0.1) $(".js-menuContainer").css({ "--opacity-left": 0 });
+    if (right > $(window).innerWidth() * 0.9) $(".js-menuContainer").css({ "--opacity-right": 0 });
+  }
+
+  hideDescription() {
+    $(".js-menuDescription").remove();
+    $(".js-menuContainer").css({ "--opacity-left": 1, "--opacity-right": 1 });
   }
 }

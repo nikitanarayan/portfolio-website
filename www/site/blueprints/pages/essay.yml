@@ -8,6 +8,7 @@ options:
   duplicate: false
 
 tabs:
+  context: tabs/context
   text:
     label: Text
     icon: text

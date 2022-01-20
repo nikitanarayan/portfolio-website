@@ -8,6 +8,7 @@ options:
   duplicate: false
 
 tabs:
+  context: tabs/context
   content:
     label: Content
     icon: folder

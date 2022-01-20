@@ -1,0 +1,8 @@
+label: Context
+icon: title
+fields:
+  description:
+    type: markdown
+    buttons: false
+    size: two-lines
+    label: Description

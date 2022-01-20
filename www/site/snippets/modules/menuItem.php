@@ -5,6 +5,7 @@
       <span class="menu__subtitle"><?= $menu->subtitle()->smartypants() ?></span>
     <?php endif; ?>
   </div>
+  <div class="menu__description js-description"><?= $menu->description()->kt() ?></div>
 </a>
 
 <?php if ($menu->is($last)) : ?>
