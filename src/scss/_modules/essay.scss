@@ -95,6 +95,10 @@
 
       @include mq(sm) {
         display: inline-block;
+        left: calc((100% - var(--margin-lg) * 4) / 7 * 4 + var(--margin-lg) * 2.5 - 2px);
+      }
+
+      @include mq(lg) {
         left: calc((100% - var(--margin-lg) * 4) / 5 * 3 + var(--margin-lg) * 2.5);
       }
     }
@@ -108,29 +112,29 @@
       padding: 0;
     }
 
-    @include mq(sm) {
+    @include mq(lg) {
       grid-column: 10 / 15;
     }
 
     & > div {
       &:nth-child(1) {
         @include mq(sm) {
-          flex-basis: calc((100% - var(--margin-lg) * 4) / 7 * 4 + var(--margin-lg) * 3);
+          width: calc((100% - var(--margin-lg) * 4) / 7 * 4 + var(--margin-lg) * 3);
           margin-right: var(--margin-lg);
         }
 
         @include mq(lg) {
-          flex-basis: calc((100% - var(--margin-lg) * 4) / 5 * 3 + var(--margin-lg) * 2);
+          width: calc((100% - var(--margin-lg) * 4) / 5 * 3 + var(--margin-lg) * 2);
         }
       }
 
       &:nth-child(2) {
         @include mq(sm) {
-          flex-basis: calc((100% - var(--margin-lg) * 4) / 7 * 3 + var(--margin-lg) * 2);
+          width: calc((100% - var(--margin-lg) * 4) / 7 * 3 + var(--margin-lg) * 2);
         }
 
         @include mq(lg) {
-          flex-basis: calc((100% - var(--margin-lg) * 4) / 5 * 2 + var(--margin-lg) * 1);
+          width: calc((100% - var(--margin-lg) * 4) / 5 * 2 + var(--margin-lg) * 1);
         }
       }
     }
@@ -148,7 +152,7 @@
 
 .essay__scroll {
   @extend .transition;
-  transition-property: flex-basis, margin-right;
+  transition-property: width, margin-right;
 
   @include mq(sm) {
     @include padding(2 0);
@@ -163,12 +167,12 @@
 
   .zoomed & {
     &:nth-child(1) {
-      flex-basis: 100% !important;
+      width: 100% !important;
       margin-right: var(--margin-sm) !important;
     }
 
     &:nth-child(2) {
-      flex-basis: 0 !important;
+      width: 0 !important;
     }
   }
 }
