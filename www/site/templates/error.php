@@ -1,8 +1,12 @@
 <?php snippet('head') ?>
 
-<div>
-  <h3>Il semblerait que la page que vous recherchiez n’existe pas (ou plus!).</h3>
-  <h3><a href="<?= $site->url() ?>">Retour à la page d’accueil</a></h3>
-</div>
+<section class="annex content js-content">
+  <article class="annex__inner">
+    <div class="annex__text">
+      <p>It seems that the page you’re looking for doesn’t exist.</p>
+      <p><a href="<?= $site->url() ?>">Back to homepage</a></p>
+    </div>
+  </article>
+</section>
 
 <?php snippet('foot') ?>
