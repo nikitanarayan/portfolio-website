@@ -27,6 +27,7 @@
     "sylvainjule/kirby-multilist": "^1.0"
   },
   "config": {
+    "allow-plugins": true,
     "optimize-autoloader": true
   },
   "extra": {
